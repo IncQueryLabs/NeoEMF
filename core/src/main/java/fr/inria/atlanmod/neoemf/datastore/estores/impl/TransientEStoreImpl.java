@@ -210,7 +210,7 @@ public class TransientEStoreImpl implements InternalEObject.EStore {
 	public boolean isEmpty(InternalEObject eObject, EStructuralFeature feature) {
 		EStoreEntryKey entry = new EStoreEntryKey(eObject, feature);
 		List<Object> list = manyMap.get(entry);
-		return list != null ? list.isEmpty() : false;
+		return list != null ? list.isEmpty() : true;
 	}
 
 	@Override
