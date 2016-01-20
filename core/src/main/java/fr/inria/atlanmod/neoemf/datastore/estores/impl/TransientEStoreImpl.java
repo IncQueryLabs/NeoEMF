@@ -209,7 +209,8 @@ public class TransientEStoreImpl implements InternalEObject.EStore {
 	@Override
 	public boolean isEmpty(InternalEObject eObject, EStructuralFeature feature) {
 		EStoreEntryKey entry = new EStoreEntryKey(eObject, feature);
-		return manyMap.get(entry).isEmpty();
+		List<Object> list = manyMap.get(entry);
+		return list != null ? list.isEmpty() : false;
 	}
 
 	@Override
@@ -222,7 +223,8 @@ public class TransientEStoreImpl implements InternalEObject.EStore {
 	@Override
 	public int hashCode(InternalEObject eObject, EStructuralFeature feature) {
 		EStoreEntryKey entry = new EStoreEntryKey(eObject, feature);
-		return manyMap.get(entry).hashCode();
+		List<Object> list = manyMap.get(entry);
+		return list != null ? list.hashCode() : 0;
 	}
 
 	@Override
